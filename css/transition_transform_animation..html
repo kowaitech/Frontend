@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Transform, Transition, Animation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1 {
+      font-size: 22px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #ff7e5f, #feb47b);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin-top: 40px;
+      display: inline-block;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    }
+    .points {
+      background: #fff4e6;
+      border-left: 5px solid #ff7e5f;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+    }
+    .points ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .points li {
+      margin-bottom: 6px;
+    }
+    .code-label, .output-label {
+      font-weight: 600;
+      margin: 15px 0 8px;
+      color: #ff7e5f;
+    }
+    .code-block {
+      background: #1e1e2f;
+      color: #dcdcdc;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .output {
+      border: 1px solid #ddd;
+      padding: 15px;
+      background: #fafafa;
+      border-radius: 8px;
+      min-height: 80px;
+      text-align: center;
+    }
+    .demo-box {
+      width: 100px;
+      height: 100px;
+      background: tomato;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      margin: 10px auto;
+      font-weight: bold;
+    }
+
+    /* Transition demo */
+    .transition-box {
+      background: skyblue;
+      transition: transform 0.5s, background 0.5s;
+    }
+    .transition-box:hover {
+      transform: scale(1.3);
+      background: dodgerblue;
+    }
+
+    /* Animation demo */
+    .animation-box {
+      background: seagreen;
+      animation: bounce 1s infinite alternate;
+    }
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(50px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Rotate -->
+  <h1>1. Rotate</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Rotates an element clockwise or counterclockwise.</li>
+        <li>Angle is given in <code>deg</code> or <code>turn</code>.</li>
+        <li>Real life: Rotating a photo frame.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+&lt;div style="transform: rotate(45deg);"&gt;
+  Rotated Box
+&lt;/div&gt;
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <div class="demo-box" style="transform: rotate(45deg);">
+        Rotate
+      </div>
+    </div>
+  </div>
+
+  <!-- Scale -->
+  <h1>2. Scale</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Resizes an element (bigger or smaller).</li>
+        <li><code>scale(1.5)</code> makes it 1.5 times larger.</li>
+        <li>Real life: Zooming into an image.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+&lt;div style="transform: scale(1.5);"&gt;
+  Scaled Box
+&lt;/div&gt;
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <div class="demo-box" style="transform: scale(1.5);">
+        Scale
+      </div>
+    </div>
+  </div>
+
+  <!-- Translate -->
+  <h1>3. Translate</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Moves the element from its original position.</li>
+        <li><code>translate(x, y)</code> → x = horizontal, y = vertical.</li>
+        <li>Real life: Shifting a box on a table.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+&lt;div style="transform: translate(50px, 30px);"&gt;
+  Moved Box
+&lt;/div&gt;
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <div class="demo-box" style="transform: translate(50px, 30px);">
+        Move
+      </div>
+    </div>
+  </div>
+
+  <!-- Skew -->
+  <h1>4. Skew</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Tilts (slants) an element along X or Y axis.</li>
+        <li><code>skew(20deg, 10deg)</code> → tilt horizontally and vertically.</li>
+        <li>Real life: Looking at a rectangle from an angle.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+&lt;div style="transform: skew(20deg, 10deg);"&gt;
+  Skewed Box
+&lt;/div&gt;
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <div class="demo-box" style="transform: skew(20deg, 10deg);">
+        Skew
+      </div>
+    </div>
+  </div>
+
+  <!-- Transition -->
+  <h1>5. Transition</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Makes CSS changes happen <b>smoothly over time</b>.</li>
+        <li>Needs a trigger like <code>:hover</code> or JS event.</li>
+        <li>Real life: A curtain opening slowly instead of instantly.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+&lt;div class="transition-box"&gt;
+  Hover Me
+&lt;/div&gt;
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <div class="demo-box transition-box">Hover</div>
+    </div>
+  </div>
+
+  <!-- Animation -->
+  <h1>6. Animation</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Creates <b>continuous or multi-step movement</b>.</li>
+        <li>Runs automatically without hover.</li>
+        <li>Uses <code>@keyframes</code> to define motion.</li>
+        <li>Real life: A bouncing ball.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+&lt;div class="animation-box"&gt;
+  Bounce
+&lt;/div&gt;
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <div class="demo-box animation-box">Bounce</div>
+    </div>
+  </div>
+
+    <!-- Comparison -->
+  <h1>7. Transform vs Transition vs Animation</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li><b>Transform:</b> Instant effect (e.g., rotate, scale, move).</li>
+        <li><b>Transition:</b> Smooth effect when triggered (e.g., hover).</li>
+        <li><b>Animation:</b> Continuous/automatic effect using <code>@keyframes</code>.</li>
+      </ul>
+    </div>
+    <div class="output-label">Output Preview (Side by Side):</div>
+    <div class="output" style="display:flex; gap:30px; justify-content:center; flex-wrap:wrap; padding:20px;">
+      
+      <!-- Transform -->
+      <div style="width:100px; height:100px; background:tomato; color:white;
+                  display:flex; align-items:center; justify-content:center;
+                  border-radius:6px; font-weight:bold; transform:rotate(20deg);">
+        Transform
+      </div>
+      
+      <!-- Transition -->
+      <div style="width:100px; height:100px; background:skyblue; color:white;
+                  display:flex; align-items:center; justify-content:center;
+                  border-radius:6px; font-weight:bold; transition:transform 0.5s, background 0.5s;"
+           onmouseover="this.style.transform='scale(1.3)'; this.style.background='dodgerblue';"
+           onmouseout="this.style.transform='scale(1)'; this.style.background='skyblue';">
+        Hover
+      </div>
+      
+      <!-- Animation -->
+      <div style="width:100px; height:100px; background:seagreen; color:white;
+                  display:flex; align-items:center; justify-content:center;
+                  border-radius:6px; font-weight:bold; animation:bounce 1s infinite alternate;">
+        Bounce
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to   { transform: translateY(40px); }
+    }
+  </style>
+
+</body>
+</html>

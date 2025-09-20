@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Units Examples</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1 {
+      font-size: 22px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #ff7e5f, #feb47b);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin-top: 40px;
+      display: inline-block;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+    .demo-box {
+      background: tomato;
+      color: white;
+      padding: 10px;
+      margin: 10px auto;
+      border-radius: 6px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- px -->
+  <h1>1. px (Pixels)</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li><b>Fixed size</b> unit.</li>
+        <li>Does not change with screen or text size.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+&lt;div style="font-size:16px;"&gt;Text with 16px font size&lt;/div&gt;
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <div class="demo-box" style="font-size:16px;">Text with 16px</div>
+    </div>
+  </div>
+
+  <!-- % -->
+  <h1>2. % (Percentage)</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Relative to the <b>parent element</b>.</li>
+        <li>Useful for responsive layouts.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+&lt;div style="width:50%; background:lightblue;"&gt;Width 50% of parent&lt;/div&gt;
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output" style="width:100%; border:1px solid #ccc; padding:5px;">
+      Parent Box
+      <div class="demo-box" style="width:50%; background:lightblue; color:black;">
+        50% Width
+      </div>
+    </div>
+  </div>
+
+  <!-- em -->
+  <h1>3. em (Relative to parent font size)</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li><code>1em = 100%</code> of parent’s font size.</li>
+        <li>Grows/shrinks based on parent.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+.parent { font-size: 16px; }
+.child { font-size: 2em; } &lt;!-- = 32px --&gt;
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output" style="font-size:16px;">
+      Parent (16px)
+      <div class="demo-box" style="font-size:2em;">Child 2em</div>
+    </div>
+  </div>
+
+  <!-- rem -->
+  <h1>4. rem (Relative to root font size)</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li><code>1rem</code> = based on <code>&lt;html&gt;</code> font-size.</li>
+        <li>More consistent than <code>em</code>.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+html { font-size: 16px; }
+div { font-size: 1.5rem; } &lt;!-- = 24px --&gt;
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <div class="demo-box" style="font-size:1.5rem;">Text 1.5rem</div>
+    </div>
+  </div>
+
+  <!-- vh -->
+  <h1>5. vh (Viewport Height)</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li><code>1vh = 1%</code> of the viewport height.</li>
+        <li><code>100vh</code> = full screen height.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+&lt;div style="height:20vh; background:orange;"&gt;20vh height&lt;/div&gt;
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <div class="demo-box" style="height:20vh; background:orange;">
+        20vh Tall
+      </div>
+    </div>
+  </div>
+
+  <!-- vw -->
+  <h1>6. vw (Viewport Width)</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li><code>1vw = 1%</code> of the viewport width.</li>
+        <li><code>100vw</code> = full screen width.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+&lt;div style="width:50vw; background:green;"&gt;50vw wide&lt;/div&gt;
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <div class="demo-box" style="width:50vw; background:green;">
+        50vw Wide
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
