@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Position Examples</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1 {
+      font-size: 22px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #007bff, #00c6ff);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin-top: 40px;
+      display: inline-block;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    }
+    .points {
+      background: #eef6ff;
+      border-left: 5px solid #007bff;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+    }
+    .points ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .points li {
+      margin-bottom: 6px;
+    }
+    .code-label, .output-label {
+      font-weight: 600;
+      margin: 15px 0 8px;
+      color: #007bff;
+    }
+    .code-block {
+      background: #1e1e2f;
+      color: #dcdcdc;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .output {
+      border: 1px solid #ddd;
+      padding: 15px;
+      background: #fafafa;
+      border-radius: 8px;
+      min-height: 50px;
+    }
+    .output div {
+      border-radius: 6px;
+    }
+    .scroll-space {
+      height: 600px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>1. Static</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>This is the <b>default position</b> for all elements.</li>
+        <li>Element stays in the page where it naturally comes.</li>
+        <li>You cannot move it using <code>top, left, right, bottom</code>.</li>
+        <li>Real life: A book kept in a shelf in its usual place.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+&lt;div style="position: static; background: lightblue;"&gt;
+  I am static (default).
+&lt;/div&gt;
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <div style="position: static; background: lightblue; padding: 10px;">
+        I am static (default).
+      </div>
+    </div>
+  </div>
+
+  <h1>2. Relative</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Element stays in its normal place.</li>
+        <li>You can <b>move it slightly</b> using <code>top/left</code>.</li>
+        <li>Other items act as if it is still in the old position.</li>
+        <li>Real life: Moving your chair slightly, but others still think you are at the same desk.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+&lt;div style="position: relative; background: orange; top: 10px; left: 20px;"&gt;
+  I am relative (moved 10px down, 20px right).
+&lt;/div&gt;
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <div style="position: relative; background: orange; top: 10px; left: 20px; padding: 10px;">
+        I am relative (moved 10px down, 20px right).
+      </div>
+    </div>
+  </div>
+
+  <h1>3. Absolute</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Element is <b>removed from normal flow</b>.</li>
+        <li>It positions itself inside the <b>nearest relative parent</b>.</li>
+        <li>If no relative parent, it attaches to the page.</li>
+        <li>Real life: A sticky note inside a notebook, not on the desk.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+&lt;div style="position: relative; background: lightgray; padding: 40px;"&gt;
+  Parent Box
+  &lt;div style="position: absolute; top: 10px; right: 10px; background: red; color: white;"&gt;
+    I am absolute (top-right corner of parent)
+  &lt;/div&gt;
+&lt;/div&gt;
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <div style="position: relative; background: lightgray; padding: 40px;">
+        Parent Box
+        <div style="position: absolute; top: 10px; right: 10px; background: red; color: white; padding: 5px;">
+          I am absolute (top-right corner of parent)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h1>4. Fixed</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Element is <b>removed from normal flow</b>.</li>
+        <li>It stays in the <b>same spot on screen</b> even when you scroll.</li>
+        <li>Real life: WhatsApp chat button always at the corner.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+&lt;div style="position: fixed; bottom: 20px; right: 20px; background: green; color: white; padding: 10px;"&gt;
+  I am fixed (stays at bottom-right always)
+&lt;/div&gt;
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <div style="position: fixed; bottom: 20px; right: 20px; background: green; color: white; padding: 10px;">
+        I am fixed (stays at bottom-right always)
+      </div>
+    </div>
+    <div class="scroll-space"></div>
+  </div>
+
+<h1>5. Sticky</h1>
+<p>
+    Sticky acts like <b>relative</b> first. But when you scroll, it becomes 
+    <b>fixed</b> at the top until its parent section ends.
+</p>
+<p><b>Real-life Example:</b> In an online shopping website, the filter bar or table header stays visible at the top while you scroll down the list.</p>
+
+<div style="height: 150px; background: lightgray; text-align:center; padding: 20px;">
+  Scroll down to see the sticky filter bar 👇
+</div>
+
+<!-- Sticky filter bar -->
+<div style="position: sticky; top: 0; background: darkblue; color: white; padding: 15px; font-weight: bold;">
+  🔍 Filter Bar (sticks on top when you scroll)
+</div>
+
+<!-- Big content to scroll -->
+<div style="height: 1000px; background: lightyellow; padding: 20px;">
+  <p>Lots of products...</p>
+  <p>Keep scrolling to see how the filter bar stays at the top.</p>
+  <p>Lorem ipsum product 1...</p>
+  <p>Lorem ipsum product 2...</p>
+  <p>Lorem ipsum product 3...</p>
+  <p>Lorem ipsum product 4...</p>
+  <p>Lorem ipsum product 5...</p>
+  <p>Lorem ipsum product 6...</p>
+  <p>Lorem ipsum product 7...</p>
+  <p>Lorem ipsum product 8...</p>
+  <p>Lorem ipsum product 9...</p>
+</div>
+
+<h1>6. Z-Index</h1>
+<p>
+    Z-index decides which element is on top when they overlap.<br>
+    Think of it like <b>stacking papers on a desk</b>. The one with the higher number is on top.
+</p>
+<p><b>Real-life Example:</b> In a shop, the invoice slip is kept on top of the catalog.</p>
+
+<!-- Container just for z-index demo -->
+<div style="position: relative; width: 300px; height: 200px; border: 2px solid black; margin: 20px 0;">
+  
+  <!-- Behind box -->
+  <div style="position: absolute; top: 30px; left: 30px; width: 200px; height: 120px; 
+              background: lightblue; z-index: 21; display:flex; align-items:center; justify-content:center;">
+    📘 Product Catalog (z-index: 1, behind)
+  </div>
+  
+  <!-- Overlapping box -->
+  <div style="position: absolute; top: 60px; left: 80px; width: 200px; height: 120px; 
+              background: tomato; color: white; z-index: 10; display:flex; align-items:center; justify-content:center;">
+    🧾 Invoice Slip (z-index: 10, on top)
+  </div>
+  
+</div>
+
+
+</body>
+</html>
