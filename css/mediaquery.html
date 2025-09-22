@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Media Queries Examples with Highlighted Code</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1 {
+      font-size: 22px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #36d1dc, #5b86e5);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin-top: 40px;
+      display: inline-block;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+    .points {
+      background: #e6f7ff;
+      border-left: 5px solid #5b86e5;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+    }
+    .points ul { margin: 0; padding-left: 18px; }
+    .points li { margin-bottom: 6px; }
+    .code-label, .output-label {
+      font-weight: 600;
+      margin: 15px 0 8px;
+      color: #5b86e5;
+    }
+    .code-block {
+      background: #1e1e2f;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+      font-family: 'Fira Code', monospace;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .code-block pre {
+      margin: 0;
+      white-space: pre;
+    }
+    .code-block code { color: #dcdcdc; }
+    /* Syntax Highlighting */
+    .selector { color: #4ec9b0; }   /* teal */
+    .property { color: #9cdcfe; }   /* light blue */
+    .value { color: #ce9178; }      /* orange */
+    .keyword { color: #c586c0; }    /* purple */
+    .comment { color: #6a9955; font-style: italic; } /* green */
+    /* Demo Boxes */
+    .demo-box {
+      width: 200px; height: 100px; margin: 10px auto;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 8px; color: white; font-weight: bold;
+    }
+    .basic-box { background: teal; }
+    .orientation-box { background: yellow; color:black; }
+    .multi-box { background: #ff9a9e; }
+    @media (max-width: 600px) {
+      .basic-box { background: red; width: 100%; }
+    }
+    @media (orientation: landscape) {
+      .orientation-box { background: blue; color:white; }
+    }
+    @media (min-width: 600px) and (max-width: 900px) {
+      .multi-box { background: purple; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Basic -->
+  <h1>1. Basic Media Query</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Change styles based on <b>screen width</b>.</li>
+        <li><code>max-width</code> → applies when screen is smaller than given width.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+      <pre><code>
+<span class="selector">.demo-box</span> {
+  <span class="property">background</span>: <span class="value">teal</span>;
+}
+
+<span class="comment">/* Mobile (≤600px) */</span>
+<span class="keyword">@media</span> (<span class="property">max-width</span>: <span class="value">600px</span>) {
+  <span class="selector">.demo-box</span> {
+    <span class="property">background</span>: <span class="value">red</span>;
+    <span class="property">width</span>: <span class="value">100%</span>;
+  }
+}
+      </code></pre>
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <div class="demo-box basic-box">Resize Me</div>
+      <p style="font-size:14px;color:#555;">➡ Default: teal | ≤600px: red + full width</p>
+    </div>
+  </div>
+
+  <!-- Orientation -->
+  <h1>2. Orientation</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Detect if device is in <b>portrait</b> or <b>landscape</b> mode.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+      <pre><code>
+<span class="selector">.orientation-box</span> {
+  <span class="property">background</span>: <span class="value">yellow</span>;
+}
+
+<span class="comment">/* Landscape mode */</span>
+<span class="keyword">@media</span> (<span class="property">orientation</span>: <span class="value">landscape</span>) {
+  <span class="selector">.orientation-box</span> {
+    <span class="property">background</span>: <span class="value">blue</span>;
+  }
+}
+      </code></pre>
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <div class="demo-box orientation-box">Rotate Screen</div>
+      <p style="font-size:14px;color:#555;">➡ Yellow (default) | Blue if in landscape</p>
+    </div>
+  </div>
+
+  <!-- Multiple Conditions -->
+  <h1>3. Multiple Conditions</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Combine conditions with <code>and</code>.</li>
+        <li>Example: Apply styles only for <b>tablets (600px–900px)</b>.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+      <pre><code>
+<span class="selector">.multi-box</span> {
+  <span class="property">background</span>: <span class="value">#ff9a9e</span>;
+}
+
+<span class="comment">/* Tablets between 600px and 900px */</span>
+<span class="keyword">@media</span> (<span class="property">min-width</span>: <span class="value">600px</span>) <span class="keyword">and</span> (<span class="property">max-width</span>: <span class="value">900px</span>) {
+  <span class="selector">.multi-box</span> {
+    <span class="property">background</span>: <span class="value">purple</span>;
+  }
+}
+      </code></pre>
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <div class="demo-box multi-box">Resize</div>
+      <p style="font-size:14px;color:#555;">➡ Pink default | Purple if width 600–900px</p>
+    </div>
+  </div>
+
+</body>
+</html>

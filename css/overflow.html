@@ -49,6 +49,7 @@
       margin: 15px 0 8px;
       color: #007bff;
     }
+    /* Code Block Styling */
     .code-block {
       background: #1e1e2f;
       color: #dcdcdc;
@@ -56,10 +57,20 @@
       border-radius: 8px;
       margin-bottom: 20px;
       overflow-x: auto;
-      font-family: monospace;
+      font-family: "Fira Code", monospace;
       font-size: 14px;
-      line-height: 1.4;
+      line-height: 1.6;
+      white-space: pre;
     }
+    .code-block code {
+      display: block;
+      white-space: pre;
+    }
+    /* Syntax Highlighting */
+    .code-block .tag { color: #569cd6; }
+    .code-block .attr { color: #9cdcfe; }
+    .code-block .value { color: #ce9178; }
+    .code-block .text { color: #d4d4d4; }
     .output {
       border: 1px solid #ddd;
       padding: 15px;
@@ -91,9 +102,11 @@
     </div>
     <div class="code-label">Code:</div>
     <div class="code-block">
-&lt;div style="overflow: visible;"&gt;
-  Long text goes beyond the box...
-&lt;/div&gt;
+<code>
+<span class="tag">&lt;div</span> <span class="attr">style=</span><span class="value">"overflow: visible;"</span><span class="tag">&gt;</span>
+  <span class="text">Long text goes beyond the box...</span>
+<span class="tag">&lt;/div&gt;</span>
+</code>
     </div>
     <div class="output-label">Output Preview:</div>
     <div class="output">
@@ -114,9 +127,11 @@
     </div>
     <div class="code-label">Code:</div>
     <div class="code-block">
-&lt;div style="overflow: hidden;"&gt;
-  Extra text is hidden
-&lt;/div&gt;
+<code>
+<span class="tag">&lt;div</span> <span class="attr">style=</span><span class="value">"overflow: hidden;"</span><span class="tag">&gt;</span>
+  <span class="text">Extra text is hidden</span>
+<span class="tag">&lt;/div&gt;</span>
+</code>
     </div>
     <div class="output-label">Output Preview:</div>
     <div class="output">
@@ -136,9 +151,11 @@
     </div>
     <div class="code-label">Code:</div>
     <div class="code-block">
-&lt;div style="overflow: scroll;"&gt;
-  Always shows scrollbars
-&lt;/div&gt;
+<code>
+<span class="tag">&lt;div</span> <span class="attr">style=</span><span class="value">"overflow: scroll;"</span><span class="tag">&gt;</span>
+  <span class="text">Always shows scrollbars</span>
+<span class="tag">&lt;/div&gt;</span>
+</code>
     </div>
     <div class="output-label">Output Preview:</div>
     <div class="output">
@@ -158,9 +175,11 @@
     </div>
     <div class="code-label">Code:</div>
     <div class="code-block">
-&lt;div style="overflow: auto;"&gt;
-  Scrollbars appear only if content is too large
-&lt;/div&gt;
+<code>
+<span class="tag">&lt;div</span> <span class="attr">style=</span><span class="value">"overflow: auto;"</span><span class="tag">&gt;</span>
+  <span class="text">Scrollbars appear only if content is too large</span>
+<span class="tag">&lt;/div&gt;</span>
+</code>
     </div>
     <div class="output-label">Output Preview:</div>
     <div class="output">

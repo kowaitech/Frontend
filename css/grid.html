@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Grid Guide for Beginners</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1 {
+      font-size: 22px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #36d1dc, #5b86e5);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin-top: 40px;
+      display: inline-block;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+    .points {
+      background: #eaf4ff;
+      border-left: 5px solid #007bff;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+    }
+    .points ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .points li {
+      margin-bottom: 6px;
+    }
+    .code-label, .output-label {
+      font-weight: 600;
+      margin: 15px 0 8px;
+      color: #007bff;
+    }
+    .code-block {
+      background: #1e1e2f;
+      color: #dcdcdc;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      white-space: pre;
+    }
+    .output {
+      border: 1px solid #ddd;
+      padding: 15px;
+      background: #fafafa;
+      border-radius: 8px;
+      min-height: 100px;
+    }
+    .grid-demo {
+      display: grid;
+      gap: 10px;
+      border: 2px solid #007bff;
+      padding: 10px;
+      background: #f0f8ff;
+      min-height: 80px;
+    }
+    .box {
+      background: #5b86e5;
+      color: white;
+      padding: 10px;
+      border-radius: 6px;
+      text-align: center;
+    }
+    .explanation {
+      background: #fff3e6;
+      border-left: 5px solid #ff6600;
+      padding: 10px 15px;
+      margin: 10px 0;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Grid Container Properties -->
+  <h1>Grid Container Properties (Parent)</h1>
+
+  <!-- Display -->
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li><b>display</b> → grid | inline-grid (turns on grid layout).</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+.container {
+    display: grid;
+}
+    </div>
+    <div class="output-label">Preview:</div>
+    <div class="output">
+      <div class="grid-demo" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+      </div>
+    </div>
+    <div class="explanation">
+      <b>grid:</b> This tells the browser to arrange items in a box system (rows & columns).<br>
+      <b>inline-grid:</b> Works the same, but the container itself behaves like a small inline box.
+    </div>
+  </div>
+
+  <!-- Grid Template Columns -->
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li><b>grid-template-columns</b> → defines how wide each column should be.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+.container {
+    grid-template-columns: 100px 1fr 2fr;
+}
+    </div>
+    <div class="output-label">Preview:</div>
+    <div class="output">
+      <div class="grid-demo" style="grid-template-columns: 100px 1fr 2fr;">
+        <div class="box">100px</div>
+        <div class="box">1fr</div>
+        <div class="box">2fr</div>
+      </div>
+    </div>
+    <div class="explanation">
+      - <b>100px:</b> First column is fixed at 100 pixels.<br>
+      - <b>1fr:</b> Second column takes 1 part of remaining space.<br>
+      - <b>2fr:</b> Third column takes 2 parts (twice as wide as 1fr).<br><br>
+      Think of "fr" as slices of cake 🍰.
+    </div>
+  </div>
+
+  <!-- Grid Template Rows -->
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li><b>grid-template-rows</b> → defines how tall each row should be.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+.container {
+    grid-template-rows: 80px auto 1fr;
+}
+    </div>
+    <div class="output-label">Preview:</div>
+    <div class="output" style="height:200px;">
+      <div class="grid-demo" style="grid-template-rows: 80px auto 1fr; grid-template-columns: 1fr;">
+        <div class="box">80px</div>
+        <div class="box">auto</div>
+        <div class="box">1fr</div>
+      </div>
+    </div>
+    <div class="explanation">
+      - <b>80px:</b> First row has fixed height.<br>
+      - <b>auto:</b> Second row grows just enough to fit the content.<br>
+      - <b>1fr:</b> Third row takes up the rest of the free space.
+    </div>
+  </div>
+  <!-- Grid Template Areas -->
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li><b>grid-template-areas</b> → give names to grid parts and place items by name.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+.container {
+    grid-template-areas: 
+        "header header"
+        "main sidebar";
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 60px auto;
+}
+.header { grid-area: header; }
+.main   { grid-area: main; }
+.sidebar{ grid-area: sidebar; }
+    </div>
+    <div class="output-label">Preview:</div>
+    <div class="output">
+      <div class="grid-demo" style="grid-template-areas:'header header' 'main sidebar'; grid-template-columns:2fr 1fr; grid-template-rows:60px auto;">
+        <div class="box" style="grid-area:header;">Header</div>
+        <div class="box" style="grid-area:main;">Main</div>
+        <div class="box" style="grid-area:sidebar;">Sidebar</div>
+      </div>
+    </div>
+    <div class="explanation">
+      Imagine a newspaper 📰: "header" is the title bar, "main" is the story, "sidebar" is a small column.  
+      This property lets you draw the layout in text form and assign items by name.
+    </div>
+  </div>
+
+  <!-- Gap -->
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li><b>gap</b> → space between boxes (rows & columns).</li>
+        <li><b>row-gap</b> → space only between rows.</li>
+        <li><b>column-gap</b> → space only between columns.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+.container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+    </div>
+    <div class="output-label">Preview:</div>
+    <div class="output">
+      <div class="grid-demo" style="grid-template-columns:repeat(3,1fr); gap:20px;">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+      </div>
+    </div>
+    <div class="explanation">
+      Think of shelves in a cupboard 🪟. "gap" is the empty space between them.  
+      Makes boxes less crowded.
+    </div>
+  </div>
+
+  <!-- Justify-Items & Align-Items -->
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li><b>justify-items</b> → moves items left, right, center inside their column.</li>
+        <li><b>align-items</b> → moves items top, bottom, middle inside their row.</li>
+        <li><b>place-items</b> → shorthand for both.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+.container {
+    justify-items: center;
+    align-items: end;
+}
+    </div>
+    <div class="output-label">Preview:</div>
+    <div class="output" style="height:150px;">
+      <div class="grid-demo" style="grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(2,1fr); justify-items:center; align-items:end; height:100%;">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+        <div class="box">Box 4</div>
+      </div>
+    </div>
+    <div class="explanation">
+      - <b>justify-items:</b> Like pushing boxes left, right or centering them in the column.  
+      - <b>align-items:</b> Like lifting boxes up, dropping them down, or keeping them in the middle.  
+      - <b>place-items:</b> Write both in one go.
+    </div>
+  </div>
+
+  <!-- Justify-Content & Align-Content -->
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li><b>justify-content</b> → moves the whole grid left, right, or spaces it out horizontally.</li>
+        <li><b>align-content</b> → moves the whole grid up, down, or spaces it out vertically.</li>
+        <li><b>place-content</b> → shorthand for both.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+.container {
+    grid-template-columns: 80px 80px;
+    justify-content: space-between;
+    align-content: center;
+}
+    </div>
+    <div class="output-label">Preview:</div>
+    <div class="output" style="height:180px;">
+      <div class="grid-demo" style="grid-template-columns:80px 80px; grid-template-rows:60px 60px; justify-content:space-between; align-content:center; height:100%;">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+      </div>
+    </div>
+    <div class="explanation">
+      Imagine a chessboard ♟️ sitting inside a table:  
+      - <b>justify-content</b> slides the whole board left, right or spreads it evenly.  
+      - <b>align-content</b> slides the whole board up, down or spaces rows evenly.  
+      - <b>place-content</b> combines both.
+    </div>
+  </div>
+
+</body>
+</html>

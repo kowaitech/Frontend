@@ -57,15 +57,24 @@
     }
     .code-block {
       background: #1e1e2f;
-      color: #dcdcdc;
       padding: 15px;
       border-radius: 8px;
       margin-bottom: 20px;
       overflow-x: auto;
-      font-family: monospace;
       font-size: 14px;
-      line-height: 1.4;
+      line-height: 1.5;
+      white-space: pre;
     }
+    .code-block code {
+      font-family: monospace;
+      color: #dcdcdc;
+    }
+    /* Syntax highlighting */
+    .tag { color: #569cd6; }
+    .attr { color: #9cdcfe; }
+    .value { color: #ce9178; }
+    .selector { color: #4ec9b0; }
+    .comment { color: #6a9955; font-style: italic; }
     .output {
       border: 1px solid #ddd;
       padding: 15px;
@@ -110,6 +119,22 @@
 </head>
 <body>
 
+    <h1>Transform</h1>
+
+
+<div class="card">
+  <b>Transform:</b> A CSS property used to <u>instantly change the shape, size, position, or orientation</u> of an element.  
+  It does not animate by itself, the effect happens immediately.  
+  Common transform functions include:  
+  <ul>
+    <li><code>rotate(angle)</code> → Rotates the element (e.g., <code>rotate(45deg)</code>).</li>
+    <li><code>scale(x, y)</code> → Resizes the element (e.g., <code>scale(1.5)</code> makes it 150%).</li>
+    <li><code>translate(x, y)</code> → Moves the element (e.g., <code>translate(50px, 20px)</code>).</li>
+    <li><code>skew(x-angle, y-angle)</code> → Tilts the element (e.g., <code>skew(20deg, 10deg)</code>).</li>
+  </ul>
+</div>
+
+
   <!-- Rotate -->
   <h1>1. Rotate</h1>
   <div class="card">
@@ -121,11 +146,11 @@
       </ul>
     </div>
     <div class="code-label">Code:</div>
-    <div class="code-block">
-&lt;div style="transform: rotate(45deg);"&gt;
+    <div class="code-block"><code>
+&lt;<span class="tag">div</span> <span class="attr">style</span>=<span class="value">"transform: rotate(45deg);"</span>&gt;
   Rotated Box
-&lt;/div&gt;
-    </div>
+&lt;/<span class="tag">div</span>&gt;
+    </code></div>
     <div class="output-label">Output Preview:</div>
     <div class="output">
       <div class="demo-box" style="transform: rotate(45deg);">
@@ -145,11 +170,11 @@
       </ul>
     </div>
     <div class="code-label">Code:</div>
-    <div class="code-block">
-&lt;div style="transform: scale(1.5);"&gt;
+    <div class="code-block"><code>
+&lt;<span class="tag">div</span> <span class="attr">style</span>=<span class="value">"transform: scale(1.5);"</span>&gt;
   Scaled Box
-&lt;/div&gt;
-    </div>
+&lt;/<span class="tag">div</span>&gt;
+    </code></div>
     <div class="output-label">Output Preview:</div>
     <div class="output">
       <div class="demo-box" style="transform: scale(1.5);">
@@ -169,11 +194,11 @@
       </ul>
     </div>
     <div class="code-label">Code:</div>
-    <div class="code-block">
-&lt;div style="transform: translate(50px, 30px);"&gt;
+    <div class="code-block"><code>
+&lt;<span class="tag">div</span> <span class="attr">style</span>=<span class="value">"transform: translate(50px, 30px);"</span>&gt;
   Moved Box
-&lt;/div&gt;
-    </div>
+&lt;/<span class="tag">div</span>&gt;
+    </code></div>
     <div class="output-label">Output Preview:</div>
     <div class="output">
       <div class="demo-box" style="transform: translate(50px, 30px);">
@@ -193,11 +218,11 @@
       </ul>
     </div>
     <div class="code-label">Code:</div>
-    <div class="code-block">
-&lt;div style="transform: skew(20deg, 10deg);"&gt;
+    <div class="code-block"><code>
+&lt;<span class="tag">div</span> <span class="attr">style</span>=<span class="value">"transform: skew(20deg, 10deg);"</span>&gt;
   Skewed Box
-&lt;/div&gt;
-    </div>
+&lt;/<span class="tag">div</span>&gt;
+    </code></div>
     <div class="output-label">Output Preview:</div>
     <div class="output">
       <div class="demo-box" style="transform: skew(20deg, 10deg);">
@@ -207,7 +232,7 @@
   </div>
 
   <!-- Transition -->
-  <h1>5. Transition</h1>
+  <h1> Transition</h1>
   <div class="card">
     <div class="points">
       <ul>
@@ -217,11 +242,22 @@
       </ul>
     </div>
     <div class="code-label">Code:</div>
-    <div class="code-block">
-&lt;div class="transition-box"&gt;
+    <div class="code-block"><code>
+&lt;<span class="tag">style</span>&gt;
+  <span class="selector">.transition-box</span> {
+    <span class="attr">background</span>: <span class="value">skyblue</span>;
+    <span class="attr">transition</span>: <span class="value">transform 0.5s, background 0.5s</span>;
+  }
+  <span class="selector">.transition-box:hover</span> {
+    <span class="attr">transform</span>: <span class="value">scale(1.3)</span>;
+    <span class="attr">background</span>: <span class="value">dodgerblue</span>;
+  }
+&lt;/<span class="tag">style</span>&gt;
+
+&lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="value">"transition-box"</span>&gt;
   Hover Me
-&lt;/div&gt;
-    </div>
+&lt;/<span class="tag">div</span>&gt;
+    </code></div>
     <div class="output-label">Output Preview:</div>
     <div class="output">
       <div class="demo-box transition-box">Hover</div>
@@ -229,7 +265,7 @@
   </div>
 
   <!-- Animation -->
-  <h1>6. Animation</h1>
+  <h1> Animation</h1>
   <div class="card">
     <div class="points">
       <ul>
@@ -240,19 +276,31 @@
       </ul>
     </div>
     <div class="code-label">Code:</div>
-    <div class="code-block">
-&lt;div class="animation-box"&gt;
+    <div class="code-block"><code>
+&lt;<span class="tag">style</span>&gt;
+  @<span class="selector">keyframes bounce</span> {
+    <span class="attr">from</span> { <span class="attr">transform</span>: <span class="value">translateY(0)</span>; }
+    <span class="attr">to</span>   { <span class="attr">transform</span>: <span class="value">translateY(50px)</span>; }
+  }
+
+  <span class="selector">.animation-box</span> {
+    <span class="attr">background</span>: <span class="value">seagreen</span>;
+    <span class="attr">animation</span>: <span class="value">bounce 1s infinite alternate</span>;
+  }
+&lt;/<span class="tag">style</span>&gt;
+
+&lt;<span class="tag">div</span> <span class="attr">class</span>=<span class="value">"animation-box"</span>&gt;
   Bounce
-&lt;/div&gt;
-    </div>
+&lt;/<span class="tag">div</span>&gt;
+    </code></div>
     <div class="output-label">Output Preview:</div>
     <div class="output">
       <div class="demo-box animation-box">Bounce</div>
     </div>
   </div>
 
-    <!-- Comparison -->
-  <h1>7. Transform vs Transition vs Animation</h1>
+  <!-- Comparison -->
+  <h1>Transform vs Transition vs Animation</h1>
   <div class="card">
     <div class="points">
       <ul>
@@ -288,13 +336,6 @@
       </div>
     </div>
   </div>
-
-  <style>
-    @keyframes bounce {
-      from { transform: translateY(0); }
-      to   { transform: translateY(40px); }
-    }
-  </style>
 
 </body>
 </html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox Guide for Beginners</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1 {
+      font-size: 22px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #36d1dc, #5b86e5);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin-top: 40px;
+      display: inline-block;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+    .points {
+      background: #eaf4ff;
+      border-left: 5px solid #007bff;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+    }
+    .points ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .points li {
+      margin-bottom: 6px;
+    }
+    .code-label, .output-label {
+      font-weight: 600;
+      margin: 15px 0 8px;
+      color: #007bff;
+    }
+    .code-block {
+      background: #1e1e2f;
+      color: #dcdcdc;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      white-space: pre;
+    }
+    .output {
+      border: 1px solid #ddd;
+      padding: 15px;
+      background: #fafafa;
+      border-radius: 8px;
+      min-height: 100px;
+    }
+    .flex-demo {
+      display: flex;
+      gap: 10px;
+      border: 2px solid #007bff;
+      padding: 10px;
+      background: #f0f8ff;
+      min-height: 80px;
+      margin: 10px auto;
+    }
+    .box {
+      background: #5b86e5;
+      color: white;
+      padding: 10px;
+      border-radius: 6px;
+      text-align: center;
+      flex: 0 0 60px;
+    }
+    .explanation {
+      background: #fff3e6;
+      border-left: 5px solid #ff6600;
+      padding: 10px 15px;
+      margin: 10px 0;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Flex Container Properties -->
+  <h1>Flex Container Properties (Parent)</h1>
+
+  <!-- Display -->
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li><b>display</b> → flex | inline-flex (turns on flexbox).</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+.container {
+    display: flex;
+}
+    </div>
+    <div class="output-label">Preview:</div>
+    <div class="output">
+      <div class="flex-demo">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+      </div>
+    </div>
+    <div class="explanation">
+      <b>flex:</b> Makes the items inside line up in a flexible row or column.<br>
+      <b>inline-flex:</b> Same, but the container itself acts like a small inline element (like text).
+    </div>
+  </div>
+
+  <!-- Flex-Direction -->
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li><b>flex-direction</b> → row | row-reverse | column | column-reverse.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+.container {
+    flex-direction: column;
+}
+    </div>
+    <div class="output-label">Preview:</div>
+    <div class="output">
+      <div class="flex-demo" style="flex-direction:row;">
+        <div class="box">row</div>
+        <div class="box">row</div>
+        <div class="box">row</div>
+      </div>
+      <div class="flex-demo" style="flex-direction:column;">
+        <div class="box">col</div>
+        <div class="box">col</div>
+        <div class="box">col</div>
+      </div>
+    </div>
+    <div class="explanation">
+      - <b>row:</b> Boxes go left → right.<br>
+      - <b>row-reverse:</b> Boxes go right → left.<br>
+      - <b>column:</b> Boxes go top → bottom.<br>
+      - <b>column-reverse:</b> Boxes go bottom → top.<br><br>
+      Think of arranging books 📚 on a shelf horizontally or vertically.
+    </div>
+  </div>
+
+  <!-- Flex-Wrap -->
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li><b>flex-wrap</b> → nowrap | wrap | wrap-reverse.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+.container {
+    flex-wrap: wrap;
+}
+    </div>
+    <div class="output-label">Preview:</div>
+    <div class="output">
+      <div class="flex-demo" style="flex-wrap:nowrap;">
+        <div class="box">no</div><div class="box">no</div><div class="box">no</div>
+        <div class="box">no</div><div class="box">no</div>
+      </div>
+      <div class="flex-demo" style="flex-wrap:wrap;">
+        <div class="box">wrap</div><div class="box">wrap</div><div class="box">wrap</div>
+        <div class="box">wrap</div><div class="box">wrap</div>
+      </div>
+    </div>
+    <div class="explanation">
+      - <b>nowrap:</b> All boxes stay on one line (can overflow).<br>
+      - <b>wrap:</b> Boxes move to the next line when space runs out.<br>
+      - <b>wrap-reverse:</b> Same as wrap but from the bottom.<br><br>
+      Imagine wrapping gifts 🎁 — if paper is small, you continue on the next sheet.
+    </div>
+  </div>
+
+  <!-- Justify-Content -->
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li><b>justify-content</b> → positions boxes left, right, center, or with even spaces.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+.container {
+    justify-content: space-between;
+}
+    </div>
+    <div class="output-label">Preview:</div>
+    <div class="output">
+      <div class="flex-demo" style="justify-content:flex-start;">
+        <div class="box">start</div><div class="box">start</div><div class="box">start</div>
+      </div>
+      <div class="flex-demo" style="justify-content:center;">
+        <div class="box">center</div><div class="box">center</div><div class="box">center</div>
+      </div>
+      <div class="flex-demo" style="justify-content:space-between;">
+        <div class="box">A</div><div class="box">B</div><div class="box">C</div>
+      </div>
+    </div>
+    <div class="explanation">
+      - <b>flex-start:</b> All boxes stick to the left.<br>
+      - <b>flex-end:</b> All boxes stick to the right.<br>
+      - <b>center:</b> All boxes go to the middle.<br>
+      - <b>space-between:</b> First at left, last at right, others spaced out.<br>
+      - <b>space-around:</b> Even gaps on both sides of each box.<br>
+      - <b>space-evenly:</b> Perfect equal gaps everywhere.<br><br>
+      Think of friends sitting on a bench 🪑 — they can huddle together or spread evenly.
+    </div>
+  </div>
+
+  <!-- Align-Items -->
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li><b>align-items</b> → positions boxes vertically (top, middle, bottom, stretched).</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+.container {
+    align-items: center;
+}
+    </div>
+    <div class="output-label">Preview:</div>
+    <div class="output">
+      <div class="flex-demo" style="height:120px; align-items:flex-start;">
+        <div class="box">top</div><div class="box">top</div><div class="box">top</div>
+      </div>
+      <div class="flex-demo" style="height:120px; align-items:center;">
+        <div class="box">mid</div><div class="box">mid</div><div class="box">mid</div>
+      </div>
+    </div>
+    <div class="explanation">
+      - <b>flex-start:</b> All boxes at the top.<br>
+      - <b>flex-end:</b> All boxes at the bottom.<br>
+      - <b>center:</b> All boxes in the middle.<br>
+      - <b>stretch:</b> Boxes stretch to fill height.<br>
+      - <b>baseline:</b> Aligns by text line.<br><br>
+      Like hanging photos on a wall 🖼️ — all at top, bottom, or middle.
+    </div>
+  </div>
+
+  <!-- Child Properties (Example: order, flex-grow) -->
+  <h1>Flex Item Properties (Child)</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li><b>order:</b> changes the sequence of boxes.</li>
+        <li><b>flex-grow:</b> controls which box expands more.</li>
+        <li><b>flex-shrink:</b> controls which box shrinks more.</li>
+        <li><b>flex-basis:</b> starting size of the box.</li>
+        <li><b>flex:</b> shorthand for grow, shrink, basis.</li>
+        <li><b>align-self:</b> one box can ignore the group’s alignment.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+.item1 { order: 2; flex-grow: 1; flex-basis: 80px; }
+.item2 { order: 1; flex-grow: 2; flex-basis: 60px; }
+.item3 { order: 3; flex-grow: 1; flex-basis: 50px; }
+    </div>
+    <div class="output-label">Preview:</div>
+    <div class="output">
+      <div class="flex-demo" style="height:120px;">
+        <div class="box" style="order:2; flex-grow:1; flex-basis:80px;">1</div>
+        <div class="box" style="order:1; flex-grow:2; flex-basis:60px;">2</div>
+        <div class="box" style="order:3; flex-grow:1; flex-basis:50px;">3</div>
+      </div>
+    </div>
+    <div class="explanation">
+      - <b>order:</b> Even if box 2 is written later, it can appear first.<br>
+      - <b>flex-grow:</b> Bigger number = box grows more when extra space is available.<br>
+      - <b>flex-shrink:</b> Bigger number = box shrinks more if space is tight.<br>
+      - <b>flex-basis:</b> Starting width/height of a box.<br>
+      - <b>align-self:</b> One box can choose its own position (top, bottom, middle).<br><br>
+      Imagine three kids sharing a pizza 🍕 — who gets the bigger slice depends on <b>flex-grow</b>.
+    </div>
+  </div>
+
+</body>
+</html>

@@ -38,6 +38,49 @@
       border-radius: 6px;
       text-align: center;
     }
+    .points {
+      background: #fff4e6;
+      border-left: 5px solid #ff7e5f;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+    }
+    .points ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .code-label, .output-label {
+      font-weight: 600;
+      margin: 15px 0 8px;
+      color: #ff7e5f;
+    }
+    .code-block {
+      background: #1e1e2f;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+      font-size: 14px;
+      line-height: 1.5;
+      white-space: pre;
+    }
+    .code-block code {
+      font-family: monospace;
+      color: #dcdcdc;
+    }
+    /* Syntax highlighting */
+    .tag { color: #569cd6; }
+    .attr { color: #9cdcfe; }
+    .value { color: #ce9178; }
+    .selector { color: #4ec9b0; }
+    .comment { color: #6a9955; font-style: italic; }
+    .output {
+      border: 1px solid #ddd;
+      padding: 15px;
+      background: #fafafa;
+      border-radius: 8px;
+      min-height: 60px;
+    }
   </style>
 </head>
 <body>
@@ -52,9 +95,11 @@
       </ul>
     </div>
     <div class="code-label">Code:</div>
-    <div class="code-block">
-&lt;div style="font-size:16px;"&gt;Text with 16px font size&lt;/div&gt;
-    </div>
+    <div class="code-block"><code>
+&lt;<span class="tag">div</span> <span class="attr">style</span>=<span class="value">"font-size:16px;"</span>&gt;
+  Text with 16px font size
+&lt;/<span class="tag">div</span>&gt;
+    </code></div>
     <div class="output-label">Output Preview:</div>
     <div class="output">
       <div class="demo-box" style="font-size:16px;">Text with 16px</div>
@@ -71,9 +116,11 @@
       </ul>
     </div>
     <div class="code-label">Code:</div>
-    <div class="code-block">
-&lt;div style="width:50%; background:lightblue;"&gt;Width 50% of parent&lt;/div&gt;
-    </div>
+    <div class="code-block"><code>
+&lt;<span class="tag">div</span> <span class="attr">style</span>=<span class="value">"width:50%; background:lightblue;"</span>&gt;
+  Width 50% of parent
+&lt;/<span class="tag">div</span>&gt;
+    </code></div>
     <div class="output-label">Output Preview:</div>
     <div class="output" style="width:100%; border:1px solid #ccc; padding:5px;">
       Parent Box
@@ -93,10 +140,15 @@
       </ul>
     </div>
     <div class="code-label">Code:</div>
-    <div class="code-block">
-.parent { font-size: 16px; }
-.child { font-size: 2em; } &lt;!-- = 32px --&gt;
-    </div>
+    <div class="code-block"><code>
+<span class="selector">.parent</span> {
+  <span class="attr">font-size</span>: <span class="value">16px</span>;
+}
+
+<span class="selector">.child</span> {
+  <span class="attr">font-size</span>: <span class="value">2em</span>; 
+} <span class="comment">&lt;!-- = 32px --&gt;</span>
+    </code></div>
     <div class="output-label">Output Preview:</div>
     <div class="output" style="font-size:16px;">
       Parent (16px)
@@ -114,10 +166,15 @@
       </ul>
     </div>
     <div class="code-label">Code:</div>
-    <div class="code-block">
-html { font-size: 16px; }
-div { font-size: 1.5rem; } &lt;!-- = 24px --&gt;
-    </div>
+    <div class="code-block"><code>
+<span class="selector">html</span> {
+  <span class="attr">font-size</span>: <span class="value">16px</span>;
+}
+
+<span class="selector">div</span> {
+  <span class="attr">font-size</span>: <span class="value">1.5rem</span>; 
+} <span class="comment">&lt;!-- = 24px --&gt;</span>
+    </code></div>
     <div class="output-label">Output Preview:</div>
     <div class="output">
       <div class="demo-box" style="font-size:1.5rem;">Text 1.5rem</div>
@@ -134,9 +191,11 @@ div { font-size: 1.5rem; } &lt;!-- = 24px --&gt;
       </ul>
     </div>
     <div class="code-label">Code:</div>
-    <div class="code-block">
-&lt;div style="height:20vh; background:orange;"&gt;20vh height&lt;/div&gt;
-    </div>
+    <div class="code-block"><code>
+&lt;<span class="tag">div</span> <span class="attr">style</span>=<span class="value">"height:20vh; background:orange;"</span>&gt;
+  20vh height
+&lt;/<span class="tag">div</span>&gt;
+    </code></div>
     <div class="output-label">Output Preview:</div>
     <div class="output">
       <div class="demo-box" style="height:20vh; background:orange;">
@@ -155,9 +214,11 @@ div { font-size: 1.5rem; } &lt;!-- = 24px --&gt;
       </ul>
     </div>
     <div class="code-label">Code:</div>
-    <div class="code-block">
-&lt;div style="width:50vw; background:green;"&gt;50vw wide&lt;/div&gt;
-    </div>
+    <div class="code-block"><code>
+&lt;<span class="tag">div</span> <span class="attr">style</span>=<span class="value">"width:50vw; background:green;"</span>&gt;
+  50vw wide
+&lt;/<span class="tag">div</span>&gt;
+    </code></div>
     <div class="output-label">Output Preview:</div>
     <div class="output">
       <div class="demo-box" style="width:50vw; background:green;">

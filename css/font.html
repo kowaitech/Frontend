@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Font & Text Properties</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1 {
+      font-size: 22px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #ff512f, #dd2476);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin-top: 40px;
+      display: inline-block;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+    .points {
+      background: #ffe6f0;
+      border-left: 5px solid #dd2476;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+    }
+    .points ul { margin: 0; padding-left: 18px; }
+    .points li { margin-bottom: 6px; }
+    .code-label, .output-label {
+      font-weight: 600;
+      margin: 15px 0 8px;
+      color: #dd2476;
+    }
+    .code-block {
+      background: #1e1e2f;
+      color: #dcdcdc;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 14px;
+      line-height: 1.4;
+      white-space: pre;
+    }
+    .output {
+      border: 1px solid #ddd;
+      padding: 15px;
+      background: #fafafa;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .demo-text {
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Font Family -->
+  <h1>1. Font Family</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Defines the typeface of the text.</li>
+        <li>Best practice: provide fallback fonts like <code>Arial, sans-serif</code>.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+p {
+  font-family: Arial, sans-serif;
+}
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <p class="demo-text" style="font-family: Arial, sans-serif;">This is Arial font.</p>
+    </div>
+  </div>
+
+  <!-- Font Size -->
+  <h1>2. Font Size</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Controls the size of the text.</li>
+        <li>Values: <code>px</code>, <code>em</code>, <code>rem</code>, etc.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+p {
+  font-size: 30px;
+}
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <p class="demo-text" style="font-size: 30px;">This is 30px text.</p>
+    </div>
+  </div>
+
+
+    <!-- Font Units -->
+  <h1>8. Font Units (px, em, rem)</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li><b>px</b> → Absolute pixels (fixed size, doesn’t scale).</li>
+        <li><b>em</b> → Relative to <b>parent’s font size</b> (1em = 100%).</li>
+        <li><b>rem</b> → Relative to <b>root html font size</b> (more consistent).</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+p.px-text {
+  font-size: 20px;
+}
+
+p.em-text {
+  font-size: 2em;   /* 2 × parent size */
+}
+
+p.rem-text {
+  font-size: 1.5rem;  /* 1.5 × root html size */
+}
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output" style="text-align:left;">
+      <div style="font-size:16px;"> <!-- parent size -->
+        <p class="demo-text px-text" style="font-size:20px;">This is 20px text (fixed)</p>
+        <p class="demo-text em-text" style="font-size:2em;">This is 2em text (relative to parent)</p>
+      </div>
+      <p class="demo-text rem-text" style="font-size:1.5rem;">This is 1.5rem text (relative to root)</p>
+    </div>
+  </div>
+
+
+  <!-- Font Weight -->
+  <h1>3. Font Weight</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Defines the thickness of characters.</li>
+        <li>Common values: <code>normal</code>, <code>bold</code>, numbers (100–900).</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+p {
+  font-weight: bold;
+}
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <p class="demo-text" style="font-weight: bold;">This is bold text.</p>
+    </div>
+  </div>
+
+  <!-- Text Align -->
+  <h1>4. Text Align</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Controls horizontal alignment of text.</li>
+        <li>Values: <code>left</code>, <code>center</code>, <code>right</code>, <code>justify</code>.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+p {
+  text-align: center;
+}
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <p class="demo-text" style="text-align: center;">This text is centered.</p>
+    </div>
+  </div>
+
+  <!-- Text Decoration -->
+  <h1>5. Text Decoration</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Adds or removes decoration lines on text.</li>
+        <li>Values: <code>none</code>, <code>underline</code>, <code>overline</code>, <code>line-through</code>.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+a {
+  text-decoration: none;
+}
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <a href="#" class="demo-text" style="text-decoration: none; color: blue;">This link has no underline</a>
+    </div>
+  </div>
+
+  <!-- Text Transform -->
+  <h1>6. Text Transform</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Controls capitalization of text.</li>
+        <li>Values: <code>uppercase</code>, <code>lowercase</code>, <code>capitalize</code>.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+p {
+  text-transform: uppercase;
+}
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <p class="demo-text" style="text-transform: uppercase;">This text is uppercase</p>
+    </div>
+  </div>
+
+  <!-- Word Spacing -->
+  <h1>7. Word Spacing</h1>
+  <div class="card">
+    <div class="points">
+      <ul>
+        <li>Defines space between words.</li>
+        <li>Value in <code>px</code>, <code>em</code>, etc.</li>
+      </ul>
+    </div>
+    <div class="code-label">Code:</div>
+    <div class="code-block">
+p {
+  word-spacing: 5px;
+}
+    </div>
+    <div class="output-label">Output Preview:</div>
+    <div class="output">
+      <p class="demo-text" style="word-spacing: 5px;">This text has extra spacing</p>
+    </div>
+  </div>
+
+</body>
+</html>
